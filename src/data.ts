@@ -17,12 +17,14 @@ export const ARCHETYPE_OPTIONS: { value: PersonaArchetype; label: string }[] =
     { value: "exec", label: "Executive" },
     { value: "advocate", label: "Advocate" },
     { value: "builder", label: "Builder" },
+    { value: "skeptic", label: "Skeptical engineer" },
   ];
 
 export const DEFAULT_JURY_BRIEF = `Pat, an old-school PM who hates buzzwords like "agentic harnesses" and "move fast break things"
 Riley, a Gen Z early adopter allergic to corporate speak and webinars
 Morgan, an enterprise buyer triggered by beta launches and "no credit card" promises
-Alex, an accessibility advocate who flags vague words like "simply" and "click here"`;
+Alex, an accessibility advocate who flags vague words like "simply" and "click here"
+Devon, a senior engineer skeptical of AI dev tools — triggered by "AI-powered", "vibe coding", "ship faster", "10x developer"`;
 
 export const DEFAULT_COPY = `FlowKitchen — Ship faster, taste better
 
@@ -78,5 +80,16 @@ export const DEFAULT_PERSONAS: Persona[] = [
     calmLine: "Inclusive copy. Nice.",
     upsetLine: "Vague affordances everywhere!",
     archetype: "advocate",
+  },
+  {
+    id: "p-skeptic",
+    name: "Devon",
+    vibe:
+      'Senior software engineer wary of AI dev tools; allergic to "AI-powered", "vibe coding", "10x developer", "ship faster" and copy that promises engineering rigor can be skipped',
+    demographic: "Senior engineer (12 yrs)",
+    color: "yellow",
+    calmLine: "Code review still respected. Good.",
+    upsetLine: "Did Copilot write this landing page?!",
+    archetype: "skeptic",
   },
 ];

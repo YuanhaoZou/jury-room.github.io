@@ -1,4 +1,5 @@
 import type { Persona, PersonaArchetype, PersonaColor } from "./types";
+import devonCorpus from "./data/devon-corpus.json";
 
 type ArchetypeProfile = {
   keywords: string[];
@@ -167,6 +168,34 @@ const ARCHETYPE_PROFILES: Record<PersonaArchetype, ArchetypeProfile> = {
     ],
     defaultColor: "purple",
     roleLabel: "Technical builder",
+  },
+  skeptic: {
+    keywords: [
+      "engineer",
+      "senior",
+      "skeptic",
+      "skeptical",
+      "wary",
+      "hesitant",
+      "anti-ai",
+      "anti ai",
+      "ai-skeptic",
+      "ai skeptic",
+      "ai-averse",
+      "code review",
+      "copilot",
+      "cursor",
+      "ai tools",
+      "vibe coding",
+      "10 year",
+      "principal",
+      "staff",
+    ],
+    lexicon: devonCorpus.lexicon,
+    calmLines: devonCorpus.calmLines,
+    upsetLines: devonCorpus.upsetLines,
+    defaultColor: "yellow",
+    roleLabel: "Skeptical engineer",
   },
 };
 

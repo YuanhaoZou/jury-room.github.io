@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   COLOR_OPTIONS,
   DEFAULT_COPY,
@@ -18,16 +18,17 @@ import { FloatingDesktop } from "./components/FloatingDesktop";
 import { ProductWebsitePane } from "./components/ProductWebsitePane";
 
 export default function App() {
-  const [copy, setCopy] = usePersistedState("jury-room:copy", DEFAULT_COPY);
+  const [copy, setCopy] = usePersistedState("jury-ai:v2:copy", DEFAULT_COPY);
   const [personas, setPersonas] = usePersistedState<Persona[]>(
-    "jury-room:personas",
+    "jury-ai:v2:personas",
     DEFAULT_PERSONAS,
   );
-  const [editMode, setEditMode] = usePersistedState("jury-room:editMode", false);
+  const [editMode, setEditMode] = usePersistedState("jury-ai:v2:editMode", false);
   const [customizeOpen, setCustomizeOpen] = usePersistedState(
-    "jury-room:customizeOpen",
+    "jury-ai:v2:customizeOpen",
     false,
   );
+  const [selectedPersonaId, setSelectedPersonaId] = useState<string | null>(null);
 
   useEffect(() => {
     setPersonas((list) => {
@@ -79,11 +80,10 @@ export default function App() {
     <div className="app">
       <header className="app-header">
         <div className="app-header-text">
-          <h1>Jury Room</h1>
+          <h1>Jury AI</h1>
           <p>
-            Split-screen product copy with an Overcooked-style persona jury.
-            Vibe-code who sits on the jury — sensitivities are inferred
-            automatically.
+            Test product copy against a panel of personas trained on real
+            community discourse. Click any juror to see what triggers them.
           </p>
         </div>
         <div className="spacer" />
@@ -113,7 +113,15 @@ export default function App() {
           editMode={editMode}
           setEditMode={setEditMode}
         />
-        <JuryPane personas={personas} matches={matches} chaosLevel={chaosLevel} />
+        <JuryPane
+          personas={personas}
+          matches={matches}
+          chaosLevel={chaosLevel}
+          copy={copy}
+          setCopy={setCopy}
+          selectedPersonaId={selectedPersonaId}
+          setSelectedPersonaId={setSelectedPersonaId}
+        />
       </div>
 
       {customizeOpen && (

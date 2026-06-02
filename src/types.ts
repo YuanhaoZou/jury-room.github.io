@@ -12,7 +12,8 @@ export type PersonaArchetype =
   | "genz"
   | "exec"
   | "advocate"
-  | "builder";
+  | "builder"
+  | "skeptic";
 
 export type Persona = {
   id: string;

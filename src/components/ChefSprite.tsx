@@ -20,7 +20,9 @@ export function ChefSprite({
           ? "#2E79B5"
           : archetype === "advocate"
             ? "#1F8A65"
-            : "#7B64B8";
+            : archetype === "skeptic"
+              ? "#C9A227"
+              : "#7B64B8";
   const body = archetype === "exec" ? "#5A6CC0" : fill;
 
   return (
